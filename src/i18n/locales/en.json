@@ -1,0 +1,38 @@
+{
+  "language": {
+    "title": "What is your preferred language?",
+    "subtitle": "Choose language",
+    "variants": ["English", "French", "German", "Spanish"]
+  },
+  "gender": {
+    "title": "What gender do you indentify with?",
+    "subtitle": "Please share how do you identify yourself",
+    "variants": ["Female", "Male", "Other"]
+  },
+  "age": {
+    "title": "What is your age?",
+    "variants": ["18-29 years", "30-39 years", "40-49 years", "50+"]
+  },
+  "books": {
+    "title": "What do you hate the most in a boook?",
+    "variants": [
+      "Lack of logic",
+      "A slow speed",
+      "Lack of humior",
+      "Way too generic ending"
+    ]
+  },
+  "topics": {
+    "title": "What are your favorite topics?",
+    "subtitle": "Choose up to 3 topics you like",
+    "variants": [
+      "Werewolf",
+      "Action",
+      "Royal Obsession",
+      "Billionaire",
+      "Romance",
+      "Young Adult",
+      "Bad Boy"
+    ]
+  }
+}

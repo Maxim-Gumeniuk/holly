@@ -1,0 +1,5 @@
+build/*
+public/*
+vite.config.js
+dist
+*.css
