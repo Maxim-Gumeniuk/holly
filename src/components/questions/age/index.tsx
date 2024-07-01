@@ -1,23 +1,17 @@
 import { Quizoption } from '@/comon/styled/QiuzOption';
 import { SeparateContainer } from '@/comon/styled/SeparateContainer';
-import { languagesAtr } from '@/constants/quiz';
-import { changeLanguage } from '@/i18n/utils/changeLanguage';
 import { useQuizContext } from '@/main-context/Quiz';
 import { useEffect } from 'react';
-
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-export const PrefLanguage = () => {
+export const ChooseAge = () => {
   const { state, dispatch, sequenceNum, setSequenceNum } = useQuizContext();
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const { t } = useTranslation();
-
   useEffect(() => {
-    if (state.language) {
-      changeLanguage(languagesAtr[state.language as keyof typeof languagesAtr]);
-
+    if (state.age) {
       setSequenceNum((prev) => prev + 1);
       navigate(`${sequenceNum + 1}`);
 
@@ -29,15 +23,15 @@ export const PrefLanguage = () => {
 
   return (
     <SeparateContainer gap="10px">
-      {(t('language.variants', { returnObjects: true }) as Array<string>).map(
-        (language) => (
+      {(t('age.variants', { returnObjects: true }) as Array<string>).map(
+        (age) => (
           <Quizoption
-            key={language}
+            key={age}
             onClick={() => {
-              dispatch({ type: 'SET_LANGUAGE', payload: language });
+              dispatch({ type: 'SET_AGE', payload: age });
             }}
           >
-            {language}
+            {age}
           </Quizoption>
         )
       )}

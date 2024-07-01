@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 
-export const Quizoption = styled.div`
+interface IQuizoption {
+  textAlign?: string;
+}
+
+export const Quizoption = styled.div<IQuizoption>`
   border-radius: 16px;
   padding: 20px 12px;
   background-color: #36173d;
   color: #fff;
   width: 100%;
-  text-align: left;
+  text-align: ${({ textAlign }) => textAlign || 'left'};
   font-size: 17px;
   font-weight: 600;
   line-height: 24px;

@@ -9,10 +9,10 @@ const defaultLanguage = 'en-GB';
 export const defaultNamespace = 'default';
 
 export const resources = {
-  'en-GB': {
+  en: {
     [defaultNamespace]: enGB,
   },
-  'fr-FR': {
+  fr: {
     [defaultNamespace]: frFR,
   },
 };

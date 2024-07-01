@@ -27,12 +27,12 @@
     "subtitle": "Choose up to 3 topics you like",
     "variants": [
       "Werewolf",
-      "Action",
-      "Royal Obsession",
-      "Billionaire",
       "Romance",
+      "Action",
       "Young Adult",
-      "Bad Boy"
+      "Royal Obsession",
+      "Bad Boy",
+      "Billionaire"
     ]
   }
 }

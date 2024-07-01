@@ -8,7 +8,6 @@ export const GlobalStyle = createGlobalStyle`
 
   * {
     box-sizing: border-box;
-    overflow: hidden;
   }
   
   html {
@@ -17,6 +16,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Nunito Sans', sans-serif;  
     height: 100%;
+     overflow: hidden;
   }
 
 #root{

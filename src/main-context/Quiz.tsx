@@ -14,16 +14,16 @@ interface QuizState {
   language: string;
   gender: string;
   age: string;
-  hateInBooks: string;
-  favoriteTopics: string;
+  hateInBooks: Array<string>;
+  favoriteTopics: Array<string>;
 }
 
 const initialState: QuizState = {
   language: '',
   gender: '',
   age: '',
-  hateInBooks: '',
-  favoriteTopics: '',
+  hateInBooks: [],
+  favoriteTopics: [],
 };
 
 type QuizAction =
@@ -42,9 +42,21 @@ const quizReducer = (state: QuizState, action: QuizAction): QuizState => {
     case 'SET_AGE':
       return { ...state, age: action.payload };
     case 'SET_HATE_IN_BOOKS':
-      return { ...state, hateInBooks: action.payload };
+      return {
+        ...state,
+        hateInBooks: state.hateInBooks.includes(action.payload)
+          ? state.hateInBooks.filter((el) => el !== action.payload)
+          : [...state.hateInBooks, action.payload],
+      };
     case 'SET_FAVORITE_TOPICS':
-      return { ...state, favoriteTopics: action.payload };
+      return {
+        ...state,
+        favoriteTopics: state.favoriteTopics.includes(action.payload)
+          ? state.favoriteTopics.filter((el) => el !== action.payload)
+          : state.favoriteTopics.length === 3
+            ? [...state.favoriteTopics.slice(0, 2), action.payload]
+            : [...state.favoriteTopics, action.payload],
+      };
     default:
       return state;
   }

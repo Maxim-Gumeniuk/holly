@@ -1,4 +1,5 @@
 import { ROUTES } from '@/navigation';
+import { EmailPage } from '@/pages/Email';
 import { Quiz } from '@/pages/Quiz';
 import { createBrowserRouter } from 'react-router-dom';
 
@@ -15,6 +16,6 @@ export const router = createBrowserRouter([
   },
   {
     path: `${ROUTES.EMAIL}`,
-    element: <div>hello</div>,
+    element: <EmailPage />,
   },
 ]);
