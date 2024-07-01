@@ -1,9 +1,9 @@
-import { Quizoption } from '@/comon/styled/QiuzOption';
-import { SeparateContainer } from '@/comon/styled/SeparateContainer';
-import { useQuizContext } from '@/main-context/Quiz';
-
-import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
+import { useQuizContext } from '@/main-context/Quiz';
+import { FlexBox } from '@/comon/styled/FlexBox';
+import { Quizoption } from '@/comon/styled/QiuzOption';
 
 export const ChooseAge = () => {
   const { dispatch, sequenceNum, setSequenceNum } = useQuizContext();
@@ -17,7 +17,7 @@ export const ChooseAge = () => {
   };
 
   return (
-    <SeparateContainer gap="10px">
+    <FlexBox gap="10px" flexDirection="column">
       {(t('age.variants', { returnObjects: true }) as Array<string>).map(
         (age) => (
           <Quizoption
@@ -30,6 +30,6 @@ export const ChooseAge = () => {
           </Quizoption>
         )
       )}
-    </SeparateContainer>
+    </FlexBox>
   );
 };

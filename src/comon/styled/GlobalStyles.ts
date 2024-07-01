@@ -15,10 +15,13 @@ export const GlobalStyle = createGlobalStyle`
   html {
     height: 100%;
   }
+  
   body {
     font-family: 'Nunito Sans', sans-serif;  
     height: 100%;
-     overflow: hidden;
+    overflow: hidden;
+    background-color: #1f002b;
+    color: #fff;
   }
 
 #root{

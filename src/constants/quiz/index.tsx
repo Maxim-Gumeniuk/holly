@@ -11,13 +11,6 @@ import { ChooseGender } from '@/components/questions/gender';
 import { PrefLanguage } from '@/components/questions/pref-language';
 import { FavoriteTopics } from '@/components/questions/topics';
 
-export const quizAnswers = {
-  language: '',
-  gender: '',
-  age: '',
-  hateInBooks: '',
-  favoriteTopics: '',
-};
 export const topicSvgs = {
   '1': {
     '0': <WereWolfSvg />,

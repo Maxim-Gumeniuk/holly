@@ -8,7 +8,6 @@ export const Quizoption = styled.div<IQuizoption>`
   border-radius: 16px;
   padding: 20px 12px;
   background-color: #36173d;
-  color: #fff;
   width: 100%;
   text-align: ${({ textAlign }) => textAlign || 'left'};
   font-size: 17px;
