@@ -13,9 +13,7 @@ type Props = {
 export const OptionTemplate: FC<Props> = ({ start, finish, topicSvgs }) => {
   const { t } = useTranslation();
 
-  const { state, dispatch } = useQuizContext();
-
-  console.log(state, '-state');
+  const { dispatch } = useQuizContext();
 
   return (
     <OptionTopicContainer style={{ color: 'white' }}>

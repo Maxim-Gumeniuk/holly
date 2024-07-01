@@ -34,5 +34,29 @@
       "Bad Boy",
       "Billionaire"
     ]
+  },
+  "progress": {
+    "title": "Finding collections for you..."
+  },
+  "email": {
+    "title": "Email",
+    "subtitle": "Enter your email to get full access",
+    "placeholder": "Your email",
+    "terms": "By continuing I agree with Privacy policy and Terms of use."
+  },
+  "quize-succes": {
+    "title": "Thank you",
+    "subtitle": "for supporting us and passing quiz",
+    "download": "Download my answers",
+    "button": "Retake quiz"
+  },
+  "button": {
+    "next": "Next"
+  },
+  "download-answers": {
+    "title": "Download my answers"
+  },
+  "errors": {
+    "email": "validateEmail"
   }
 }

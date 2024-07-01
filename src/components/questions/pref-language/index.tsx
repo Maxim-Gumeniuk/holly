@@ -1,31 +1,21 @@
 import { Quizoption } from '@/comon/styled/QiuzOption';
 import { SeparateContainer } from '@/comon/styled/SeparateContainer';
-import { languagesAtr } from '@/constants/quiz';
-import { changeLanguage } from '@/i18n/utils/changeLanguage';
 import { useQuizContext } from '@/main-context/Quiz';
-import { useEffect } from 'react';
 
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 export const PrefLanguage = () => {
-  const { state, dispatch, sequenceNum, setSequenceNum } = useQuizContext();
+  const { dispatch, sequenceNum, setSequenceNum } = useQuizContext();
   const navigate = useNavigate();
 
   const { t } = useTranslation();
 
-  useEffect(() => {
-    if (state.language) {
-      changeLanguage(languagesAtr[state.language as keyof typeof languagesAtr]);
-
-      setSequenceNum((prev) => prev + 1);
-      navigate(`${sequenceNum + 1}`);
-
-      return;
-    }
-
-    return;
-  }, [state]);
+  const handleChooseOption = (language: string) => {
+    dispatch({ type: 'SET_LANGUAGE', payload: language });
+    setSequenceNum((prev) => prev + 1);
+    navigate(`${sequenceNum + 1}`);
+  };
 
   return (
     <SeparateContainer gap="10px">
@@ -34,7 +24,7 @@ export const PrefLanguage = () => {
           <Quizoption
             key={language}
             onClick={() => {
-              dispatch({ type: 'SET_LANGUAGE', payload: language });
+              handleChooseOption(language);
             }}
           >
             {language}

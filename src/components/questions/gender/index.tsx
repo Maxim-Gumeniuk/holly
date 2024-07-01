@@ -10,20 +10,15 @@ import { useNavigate } from 'react-router-dom';
 import { useQuizContext } from '@/main-context/Quiz';
 
 export const ChooseGender = () => {
-  const { state, dispatch, sequenceNum, setSequenceNum } = useQuizContext();
+  const { dispatch, sequenceNum, setSequenceNum } = useQuizContext();
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (state.gender) {
-      setSequenceNum((prev) => prev + 1);
-      navigate(`${sequenceNum + 1}`);
-
-      return;
-    }
-
-    return;
-  }, [state]);
+  const handleChooseOption = (gender: string) => {
+    dispatch({ type: 'SET_GENDER', payload: gender });
+    setSequenceNum((prev) => prev + 1);
+    navigate(`${sequenceNum + 1}`);
+  };
 
   const genderImages = useMemo(() => {
     return {
@@ -42,7 +37,7 @@ export const ChooseGender = () => {
               key={variant}
               textAlign="center"
               onClick={() => {
-                dispatch({ type: 'SET_GENDER', payload: variant });
+                handleChooseOption(variant);
               }}
             >
               <FlexContainer flexDirection="column">

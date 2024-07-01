@@ -1,25 +1,20 @@
 import { Quizoption } from '@/comon/styled/QiuzOption';
 import { SeparateContainer } from '@/comon/styled/SeparateContainer';
 import { useQuizContext } from '@/main-context/Quiz';
-import { useEffect } from 'react';
+
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 export const ChooseAge = () => {
-  const { state, dispatch, sequenceNum, setSequenceNum } = useQuizContext();
+  const { dispatch, sequenceNum, setSequenceNum } = useQuizContext();
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (state.age) {
-      setSequenceNum((prev) => prev + 1);
-      navigate(`${sequenceNum + 1}`);
-
-      return;
-    }
-
-    return;
-  }, [state]);
+  const handleChooseOption = (age: string) => {
+    dispatch({ type: 'SET_AGE', payload: age });
+    setSequenceNum((prev) => prev + 1);
+    navigate(`${sequenceNum + 1}`);
+  };
 
   return (
     <SeparateContainer gap="10px">
@@ -28,7 +23,7 @@ export const ChooseAge = () => {
           <Quizoption
             key={age}
             onClick={() => {
-              dispatch({ type: 'SET_AGE', payload: age });
+              handleChooseOption(age);
             }}
           >
             {age}
