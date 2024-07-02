@@ -20,9 +20,9 @@ export const QuizWrapper = () => {
 
   const navigate = useNavigate();
 
-  const { t } = useTranslation();
-
   const { state, dispatch } = useQuizContext();
+
+  const { t } = useTranslation();
 
   const keysOfQuizComponents = useMemo(() => Object.keys(quizComponents), []);
 
@@ -105,7 +105,6 @@ export const QuizWrapper = () => {
                 </Subtitle>
               )}
             </FlexBox>
-
             {
               quizComponents[
                 String(state.sequenceNum) as keyof typeof quizComponents
