@@ -5,8 +5,8 @@ interface Button {
 }
 
 export const Button = styled.div<Button>`
-  color: #fff;
-  background-color: #e4229c;
+  color: ${({ theme }) => theme.colors.text};
+  background-color: ${({ theme }) => theme.colors.secondary};
   text-align: center;
   display: flex;
   justify-content: center;

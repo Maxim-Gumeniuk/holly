@@ -89,7 +89,7 @@ export const QuizWrapper = () => {
                     quizTitles[String(sequenceNum) as keyof typeof quizTitles]
                       .title
                   ),
-                  ['hate']
+                  t('color-text.red', { returnObjects: true })
                 )}
               </MainTitle>
               {quizTitles[String(sequenceNum) as keyof typeof quizTitles]

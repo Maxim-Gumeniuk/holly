@@ -63,5 +63,8 @@
   },
   "errors": {
     "email": "invalid email"
+  },
+  "color-text": {
+    "red": ["Privacy policy", "Terms of use", "hate"]
   }
 }

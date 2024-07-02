@@ -8,11 +8,12 @@ export const MultiSelectOption = styled.div<IMultiSelectOption>`
   border-radius: 16px;
   padding: 30px;
   height: 80px;
-  background-color: ${({ checked }) =>
-    checked ? 'rgba(228, 34, 155, 0.2)' : '#36173d'};
-  border: ${({ checked }) => checked && '1px solid #E4229B'};
+  background-color: ${({ checked, theme }) =>
+    checked ? 'rgba(228, 34, 155, 0.2)' : `${theme.colors.secondarybg}`};
+  border: ${({ checked, theme }) =>
+    checked && `1px solid ${theme.colors.secondary}`};
   width: 100%;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.text};
   font-size: 17px;
   display: flex;
   justify-content: space-between;
@@ -21,9 +22,6 @@ export const MultiSelectOption = styled.div<IMultiSelectOption>`
   cursor: pointer;
 
   &:checked {
-    background-color: #e4229b;
-  }
-  &:hover {
-    /* background-color: lightgrey; */
+    background-color: ${({ theme }) => theme.colors.selectedbg};
   }
 `;

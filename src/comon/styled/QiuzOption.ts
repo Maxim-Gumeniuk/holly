@@ -8,7 +8,7 @@ interface IQuizoption {
 export const Quizoption = styled.div<IQuizoption>`
   border-radius: 16px;
   padding: ${({ padding }) => padding || '20px 12px;'};
-  background-color: #36173d;
+  background-color: ${({ theme }) => theme.colors.secondarybg};
   width: 100%;
   text-align: ${({ textAlign }) => textAlign || 'left'};
   font-size: 17px;

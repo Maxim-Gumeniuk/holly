@@ -29,7 +29,10 @@ export const ResultEmail = () => {
         )}
       </FlexBox>
       <TermContainer>
-        {highlight(t('email.terms'), ['Privacy policy', 'Terms of use'])}
+        {highlight(
+          t('email.terms'),
+          t('color-text.red', { returnObjects: true })
+        )}
       </TermContainer>
     </FlexBox>
   );

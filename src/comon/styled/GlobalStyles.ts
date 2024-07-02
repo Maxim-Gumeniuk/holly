@@ -15,11 +15,11 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   body {
-    font-family: 'Nunito Sans', sans-serif;  
+    font-family: ${({ theme }) => theme.fonts.body};
     height: 100%;
     overflow: hidden;
-    background-color: #1f002b;
-    color: #fff;
+    background-color: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.text}
   }
 
 #root{

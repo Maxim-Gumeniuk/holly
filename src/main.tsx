@@ -7,13 +7,17 @@ import { router } from './router/index.tsx';
 import './i18n/config';
 import { GlobalStyle } from './comon/styled/GlobalStyles.ts';
 import { QuizProvider } from './main-context/Quiz.tsx';
+import { ThemeProvider } from 'styled-components';
+import { theme } from './comon/styled/theme/index.ts';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <QuizProvider>
-      <RouterProvider router={router} />
-      <GlobalStyle />
-      <App />
+      <ThemeProvider theme={theme}>
+        <RouterProvider router={router} />
+        <GlobalStyle />
+        <App />
+      </ThemeProvider>
     </QuizProvider>
   </React.StrictMode>
 );

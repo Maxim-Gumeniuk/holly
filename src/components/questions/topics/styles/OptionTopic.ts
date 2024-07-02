@@ -11,14 +11,15 @@ export const OptionTopic = styled.div<IOptionTopic>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #36173d;
+  background-color: ${({ theme }) => theme.colors.secondarybg};
   border-radius: 100%;
   min-width: 110px;
   min-height: 110px;
 
   width: 100%;
   height: 100%;
-  border: ${({ checked }) => checked && '2px solid #E4229B'};
+  border: ${({ checked, theme }) =>
+    checked && `2px solid ${theme.colors.secondary}`};
 
   @media (min-width: 968px) {
     width: 150px;

@@ -47,7 +47,7 @@
     "title": "Email",
     "subtitle": "Entrez votre email pour obtenir un accès complet",
     "placeholder": "Votre email",
-    "terms": "En continuant, j'accepte la politique de confidentialité et les conditions d'utilisation."
+    "terms": "En continuant, j'accepte la Politique de confidentialité et les Conditions d'utilisation."
   },
   "quize-succes": {
     "title": "Merci",
@@ -63,5 +63,12 @@
   },
   "errors": {
     "email": "élécharg mes"
+  },
+  "color-text": {
+    "red": [
+      "Politique de confidentialité",
+      "Conditions d'utilisation",
+      "détestez"
+    ]
   }
 }

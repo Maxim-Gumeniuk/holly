@@ -63,5 +63,8 @@
   },
   "errors": {
     "email": "Descarl Emeole"
+  },
+  "color-text": {
+    "red": ["Política de privacidad", "Términos de uso", "odias"]
   }
 }

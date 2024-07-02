@@ -16,7 +16,9 @@ export const PrefLanguage = () => {
   const handleChooseOption = (language: string, value: string) => {
     dispatch({ type: 'SET_LANGUAGE', payload: language });
 
-    changeLanguage(value);
+    localStorage.setItem('languageKey', value);
+
+    changeLanguage(localStorage.getItem('languageKey')!);
     setSequenceNum((prev) => prev + 1);
 
     navigate(`${sequenceNum + 1}`);

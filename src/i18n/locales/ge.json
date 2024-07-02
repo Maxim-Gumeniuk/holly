@@ -63,5 +63,8 @@
   },
   "errors": {
     "email": "erneut emaile"
+  },
+  "color-text": {
+    "red": ["Datenschutzrichtlinie", "Nutzungsbedingungen", "meisten"]
   }
 }

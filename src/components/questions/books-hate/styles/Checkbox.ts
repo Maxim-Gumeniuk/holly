@@ -9,9 +9,10 @@ export const CheckBox = styled.div<ICheckBox>`
   width: 23px;
   height: 23px;
   cursor: pointer;
-  border: 2px solid #e4229b;
+  border: ${({ theme }) => ` 2px solid ${theme.colors.selectedbg}`};
   border-radius: 8px;
-  background-color: ${({ checked }) => (checked ? '#e4229b' : '#6d4376')};
+  background-color: ${({ checked, theme }) =>
+    checked ? `${theme.colors.secondarybg}` : `${theme.colors.disabledbg}`};
   background-image: ${({ checked }) => checked && `url(${checkSvg})`};
   background-repeat: no-repeat;
   background-position: center;
