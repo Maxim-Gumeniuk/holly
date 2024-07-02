@@ -6,7 +6,7 @@ import { FlexBox } from '@/comon/styled/FlexBox';
 import { Quizoption } from '@/comon/styled/QiuzOption';
 
 export const ChooseAge = () => {
-  const { dispatch, sequenceNum, setSequenceNum } = useQuizContext();
+  const { state, dispatch, sequenceNum, setSequenceNum } = useQuizContext();
   const { t } = useTranslation();
   const navigate = useNavigate();
 
@@ -21,6 +21,7 @@ export const ChooseAge = () => {
       {(t('age.variants', { returnObjects: true }) as Array<string>).map(
         (age) => (
           <Quizoption
+            checked={state.age === age}
             key={age}
             onClick={() => {
               handleChooseOption(age);

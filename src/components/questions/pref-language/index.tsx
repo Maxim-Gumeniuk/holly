@@ -8,17 +8,17 @@ import { Quizoption } from '@/comon/styled/QiuzOption';
 import { useQuizContext } from '@/main-context/Quiz';
 
 export const PrefLanguage = () => {
-  const { dispatch, sequenceNum, setSequenceNum } = useQuizContext();
+  const { state, sequenceNum, setSequenceNum } = useQuizContext();
+
   const navigate = useNavigate();
 
   const { t } = useTranslation();
 
-  const handleChooseOption = (language: string, value: string) => {
-    dispatch({ type: 'SET_LANGUAGE', payload: language });
+  const handleChooseOption = async (value: string) => {
+    await changeLanguage(value || localStorage.getItem('languageKey')!);
 
     localStorage.setItem('languageKey', value);
 
-    changeLanguage(localStorage.getItem('languageKey')!);
     setSequenceNum((prev) => prev + 1);
 
     navigate(`${sequenceNum + 1}`);
@@ -33,9 +33,10 @@ export const PrefLanguage = () => {
         }>
       ).map(({ language, value }) => (
         <Quizoption
+          checked={state.language === language}
           key={value}
           onClick={() => {
-            handleChooseOption(language, value);
+            handleChooseOption(value);
           }}
         >
           {language}

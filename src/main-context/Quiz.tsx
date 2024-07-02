@@ -114,9 +114,7 @@ export const QuizProvider = ({ children }: QuizProviderProps) => {
     loadStateFromLocalStorage()
   );
 
-  const [sequenceNum, setSequenceNum] = useState(
-    localStorage.getItem('quizId') ? +localStorage.getItem('quizId')! : 1
-  );
+  const [sequenceNum, setSequenceNum] = useState(1);
 
   const value = useMemo(
     () => ({ state, dispatch, sequenceNum, setSequenceNum }),
