@@ -3,9 +3,10 @@ import { useTranslation } from 'react-i18next';
 
 import { DownLoadSvg } from '@/public/assets/svg/download';
 import { SuccesSvg } from '@/public/assets/svg/succes';
-import { FlexButton } from '@/comon/styled/FlexBox';
+
 import { useQuizContext } from '@/main-context/Quiz';
 import { downloadCSV } from '@/utils/csv';
+import { FlexBox } from '@/comon/styled/FlexBox';
 
 export const SuccesEmail = () => {
   const { state } = useQuizContext();
@@ -53,7 +54,8 @@ export const SuccesEmail = () => {
       <div>
         <SuccesSvg />
       </div>
-      <FlexButton
+      <FlexBox
+        cursor="pointer"
         justifyContent="center"
         gap="5px"
         alignItem="center"
@@ -64,7 +66,7 @@ export const SuccesEmail = () => {
         <DownLoadSvg />
 
         <div>{t('download-answers.title')}</div>
-      </FlexButton>
+      </FlexBox>
     </>
   );
 };

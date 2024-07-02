@@ -9,6 +9,7 @@ interface FlexContainer {
   height?: string;
   marginTop?: string;
   alignItem?: string;
+  cursor?: string;
 }
 
 export const FlexBox = styled.div<FlexContainer>`
@@ -21,14 +22,11 @@ export const FlexBox = styled.div<FlexContainer>`
   align-items: ${({ alignItem }) => alignItem || 'stretch'};
   height: ${({ height }) => height || 'auto'};
   margin-top: ${({ marginTop }) => (marginTop ? marginTop : '0px')};
+  cursor: ${({ cursor }) => cursor || 'auto'}
 `;
 
 export const ExtendedFlexBox = styled(FlexBox)<FlexContainer>`
   flex: 1 1 auto;
-`;
-
-export const FlexButton = styled(FlexBox)<FlexContainer>`
-  cursor: pointer;
 `;
 
 export const OverflowContainer = styled(FlexBox)`
