@@ -17,8 +17,6 @@ import { highlight } from '@/comon/components/highlightText';
 export const QuizWrapper = () => {
   const { quizId } = useParams();
 
-  console.log(quizId, 'quizId');
-
   const navigate = useNavigate();
 
   const { t } = useTranslation();
