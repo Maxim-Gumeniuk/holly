@@ -1,3 +1,2 @@
 yarn run format
 yarn run lint
-yarn run tslint

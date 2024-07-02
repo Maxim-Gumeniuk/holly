@@ -1,4 +1,3 @@
-import { ROUTES } from '@/navigation';
 import {
   createContext,
   useReducer,
@@ -8,9 +7,7 @@ import {
   useState,
   SetStateAction,
   useMemo,
-  useEffect,
 } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
 
 interface QuizState {
   language: string;
