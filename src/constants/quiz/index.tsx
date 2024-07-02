@@ -1,10 +1,10 @@
-import { ActionsSvg } from '@/assets/svg/actions';
-import { AdultSvg } from '@/assets/svg/adult';
-import { BadBoySvg } from '@/assets/svg/badBoy';
-import { BillionareSvg } from '@/assets/svg/billionare';
-import { RomanceSvg } from '@/assets/svg/romance';
-import { RoyalSvg } from '@/assets/svg/royal';
-import { WereWolfSvg } from '@/assets/svg/werewolf';
+import { ActionsSvg } from '@/public/assets/svg/actions';
+import { AdultSvg } from '@/public/assets/svg/adult';
+import { BadBoySvg } from '@/public/assets/svg/badBoy';
+import { BillionareSvg } from '@/public/assets/svg/billionare';
+import { RomanceSvg } from '@/public/assets/svg/romance';
+import { RoyalSvg } from '@/public/assets/svg/royal';
+import { WereWolfSvg } from '@/public/assets/svg/werewolf';
 import { ChooseAge } from '@/components/questions/age';
 import { HateInBook } from '@/components/questions/books-hate';
 import { ChooseGender } from '@/components/questions/gender';

@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { DownLoadSvg } from '@/assets/svg/download';
-import { SuccesSvg } from '@/assets/svg/succes';
+import { DownLoadSvg } from '@/public/assets/svg/download';
+import { SuccesSvg } from '@/public/assets/svg/succes';
 import { FlexButton } from '@/comon/styled/FlexBox';
 import { useQuizContext } from '@/main-context/Quiz';
 import { downloadCSV } from '@/utils/csv';

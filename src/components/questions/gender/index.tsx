@@ -5,9 +5,9 @@ import { useTranslation } from 'react-i18next';
 import { useQuizContext } from '@/main-context/Quiz';
 
 import { Quizoption } from '@/comon/styled/QiuzOption';
-import FemalePicture from '@/assets/female.png';
-import MalePicture from '@/assets/male.png';
-import OtherPicture from '@/assets/other.png';
+import FemalePicture from '@/public/assets/female.png';
+import MalePicture from '@/public/assets/male.png';
+import OtherPicture from '@/public/assets/other.png';
 import { FlexBox } from '@/comon/styled/FlexBox';
 
 export const ChooseGender = () => {
