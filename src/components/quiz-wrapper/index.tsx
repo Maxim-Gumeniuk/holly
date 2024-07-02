@@ -30,6 +30,10 @@ export const QuizWrapper = () => {
       setSequenceNum(1);
       navigate('1');
     }
+
+    setSequenceNum(+quizId!);
+
+    localStorage.setItem('quizId', String(quizId));
   }, [quizId]);
 
   const nextQuiz = () => {
