@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useQuizContext } from '@/main-context/Quiz';
 import { FlexBox } from '@/comon/styled/FlexBox';
 import { Quizoption } from '@/comon/styled/QiuzOption';
+import { Actions } from '@/main-context/types';
 
 export const ChooseAge = () => {
   const { state, dispatch, sequenceNum, setSequenceNum } = useQuizContext();
@@ -11,7 +12,7 @@ export const ChooseAge = () => {
   const navigate = useNavigate();
 
   const handleChooseOption = (age: string) => {
-    dispatch({ type: 'SET_AGE', payload: age });
+    dispatch({ type: Actions.SET_AGE, payload: age });
     setSequenceNum((prev) => prev + 1);
     navigate(`${sequenceNum + 1}`);
   };

@@ -8,17 +8,9 @@ import {
   SetStateAction,
   useMemo,
 } from 'react';
+import { Actions, QuizState } from './types';
 
-interface QuizState {
-  language: string;
-  gender: string;
-  age: string;
-  hateInBooks: Array<string>;
-  favoriteTopics: Array<string>;
-  email: string;
-}
-
-const initialState: QuizState = {
+export const initialState: QuizState = {
   language: '',
   gender: '',
   age: '',
@@ -28,13 +20,13 @@ const initialState: QuizState = {
 };
 
 type QuizAction =
-  | { type: 'SET_LANGUAGE'; payload: string }
-  | { type: 'SET_GENDER'; payload: string }
-  | { type: 'SET_AGE'; payload: string }
-  | { type: 'SET_HATE_IN_BOOKS'; payload: string }
-  | { type: 'SET_FAVORITE_TOPICS'; payload: string }
-  | { type: 'SET_EMAIL'; payload: string }
-  | { type: 'CLEAR_ALL'; payload: null };
+  | { type: Actions.SET_LANGUAGE; payload: string }
+  | { type: Actions.SET_GENDER; payload: string }
+  | { type: Actions.SET_AGE; payload: string }
+  | { type: Actions.SET_HATE_IN_BOOKS; payload: string }
+  | { type: Actions.SET_FAVORITE_TOPICS; payload: string }
+  | { type: Actions.SET_EMAIL; payload: string }
+  | { type: Actions.CLEAR_ALL; payload: null };
 
 const saveStateToLocalStorage = (state: QuizState) => {
   try {
@@ -57,27 +49,28 @@ const loadStateFromLocalStorage = (): QuizState => {
     return initialState;
   }
 };
+
 const quizReducer = (state: QuizState, action: QuizAction): QuizState => {
   const newState = (() => {
     switch (action.type) {
-      case 'CLEAR_ALL':
+      case Actions.CLEAR_ALL:
         return { ...initialState };
-      case 'SET_LANGUAGE':
+      case Actions.SET_LANGUAGE:
         return { ...state, language: action.payload };
-      case 'SET_GENDER':
+      case Actions.SET_GENDER:
         return { ...state, gender: action.payload };
-      case 'SET_AGE':
+      case Actions.SET_AGE:
         return { ...state, age: action.payload };
-      case 'SET_HATE_IN_BOOKS':
+      case Actions.SET_HATE_IN_BOOKS:
         return {
           ...state,
           hateInBooks: state.hateInBooks.includes(action.payload)
             ? state.hateInBooks.filter((el) => el !== action.payload)
             : [...state.hateInBooks, action.payload],
         };
-      case 'SET_EMAIL':
+      case Actions.SET_EMAIL:
         return { ...state, email: action.payload };
-      case 'SET_FAVORITE_TOPICS':
+      case Actions.SET_FAVORITE_TOPICS:
         return {
           ...state,
           favoriteTopics: state.favoriteTopics.includes(action.payload)

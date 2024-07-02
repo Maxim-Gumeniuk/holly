@@ -11,6 +11,7 @@ import { MainTitle } from '@/comon/styled/MainTitle';
 import { Subtitle } from '@/comon/styled/Subtitle';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '@/navigation';
+import { Actions } from '@/main-context/types';
 
 export const ResultEmail = () => {
   const { t } = useTranslation();
@@ -36,7 +37,10 @@ export const ResultEmail = () => {
                 placeholder={t('email.placeholder')}
                 value={state.email}
                 onChange={(e) => {
-                  dispatch({ type: 'SET_EMAIL', payload: e.target.value });
+                  dispatch({
+                    type: Actions.SET_EMAIL,
+                    payload: e.target.value,
+                  });
                 }}
               />
               {!validateEmail(state.email) && inputRef.current && (

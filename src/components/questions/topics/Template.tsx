@@ -3,6 +3,7 @@ import { OptionTopicContainer } from './styles/OptionTopicContainer';
 import { OptionTopic } from './styles/OptionTopic';
 import { FC } from 'react';
 import { useQuizContext } from '@/main-context/Quiz';
+import { Actions } from '@/main-context/types';
 
 type Props = {
   start: number;
@@ -24,7 +25,7 @@ export const OptionTemplate: FC<Props> = ({ start, finish, topicSvgs }) => {
             checked={!!state.favoriteTopics.includes(topic)}
             key={topic}
             onClick={() => {
-              dispatch({ type: 'SET_FAVORITE_TOPICS', payload: topic });
+              dispatch({ type: Actions.SET_FAVORITE_TOPICS, payload: topic });
             }}
           >
             {topicSvgs[index]}

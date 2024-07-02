@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useQuizContext } from '@/main-context/Quiz';
 import { CheckBox } from './styles/Checkbox';
 import { MultiSelectOption } from './styles/MultiSelectOption';
+import { Actions } from '@/main-context/types';
 
 export const HateInBook = () => {
   const { dispatch, state } = useQuizContext();
@@ -16,7 +17,10 @@ export const HateInBook = () => {
             checked={!!state.hateInBooks.includes(hateInBook)}
             key={hateInBook}
             onClick={() => {
-              dispatch({ type: 'SET_HATE_IN_BOOKS', payload: hateInBook });
+              dispatch({
+                type: Actions.SET_HATE_IN_BOOKS,
+                payload: hateInBook,
+              });
             }}
           >
             <div>{hateInBook}</div>

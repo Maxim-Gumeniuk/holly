@@ -1,14 +1,14 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { useQuizContext } from '@/main-context/Quiz';
 
 import { Quizoption } from '@/comon/styled/QiuzOption';
-import FemalePicture from '@/public/assets/female.png';
-import MalePicture from '@/public/assets/male.png';
-import OtherPicture from '@/public/assets/other.png';
+
 import { FlexBox } from '@/comon/styled/FlexBox';
+import { genderImages } from '@/constants/quiz';
+import { Actions } from '@/main-context/types';
 
 export const ChooseGender = () => {
   const { state, dispatch, sequenceNum, setSequenceNum } = useQuizContext();
@@ -27,22 +27,14 @@ export const ChooseGender = () => {
       ({ value }) => localStorage.getItem('languageKey') === value
     )?.language;
 
-    dispatch({ type: 'SET_LANGUAGE', payload: choosedLang! });
+    dispatch({ type: Actions.SET_LANGUAGE, payload: choosedLang! });
   }, []);
 
   const handleChooseOption = (gender: string) => {
-    dispatch({ type: 'SET_GENDER', payload: gender });
+    dispatch({ type: Actions.SET_GENDER, payload: gender });
     setSequenceNum((prev) => prev + 1);
     navigate(`${sequenceNum + 1}`);
   };
-
-  const genderImages = useMemo(() => {
-    return {
-      0: FemalePicture,
-      1: MalePicture,
-      2: OtherPicture,
-    };
-  }, []);
 
   return (
     <FlexBox gap="10px">
@@ -56,7 +48,12 @@ export const ChooseGender = () => {
               handleChooseOption(variant);
             }}
           >
-            <FlexBox flexDirection="column" gap="10px" alignItem="center">
+            <FlexBox
+              flexDirection="column"
+              gap="10px"
+              alignItem="center"
+              cursor="pointer"
+            >
               <img src={genderImages[index as keyof typeof genderImages]} />
               {variant}
             </FlexBox>

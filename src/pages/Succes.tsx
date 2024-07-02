@@ -4,6 +4,7 @@ import { ExtendedFlexBox, FlexBox } from '@/comon/styled/FlexBox';
 import { MainTitle } from '@/comon/styled/MainTitle';
 import { Subtitle } from '@/comon/styled/Subtitle';
 import { useQuizContext } from '@/main-context/Quiz';
+import { Actions } from '@/main-context/types';
 import { ROUTES } from '@/navigation';
 import { DownLoadSvg } from '@/public/assets/svg/download';
 import { SuccesSvg } from '@/public/assets/svg/succes';
@@ -20,7 +21,7 @@ export const Succes = () => {
   const retakeQuiz = () => {
     localStorage.clear();
 
-    dispatch({ type: 'CLEAR_ALL', payload: null });
+    dispatch({ type: Actions.CLEAR_ALL, payload: null });
 
     setSequenceNum(1);
 

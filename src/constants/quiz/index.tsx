@@ -10,6 +10,9 @@ import { HateInBook } from '@/components/questions/books-hate';
 import { ChooseGender } from '@/components/questions/gender';
 import { PrefLanguage } from '@/components/questions/pref-language';
 import { FavoriteTopics } from '@/components/questions/topics';
+import FemalePicture from '@/public/assets/female.png';
+import MalePicture from '@/public/assets/male.png';
+import OtherPicture from '@/public/assets/other.png';
 
 export const topicSvgs = {
   '1': {
@@ -44,4 +47,10 @@ export const quizComponents = {
   '3': <ChooseAge />,
   '4': <HateInBook />,
   '5': <FavoriteTopics />,
+};
+
+export const genderImages = {
+  0: FemalePicture,
+  1: MalePicture,
+  2: OtherPicture,
 };
