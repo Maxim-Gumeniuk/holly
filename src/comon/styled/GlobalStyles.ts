@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: ${({ theme }) => theme.fonts.body};
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
     background-color: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.text}
   }
