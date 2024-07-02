@@ -13,6 +13,7 @@ export const StyledSvg = styled.svg`
   transform: rotate(-90deg);
   width: 100%;
   height: 100%;
+
   circle {
     transition: stroke-dashoffset 0.3s;
   }

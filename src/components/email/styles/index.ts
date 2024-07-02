@@ -6,8 +6,16 @@ export const EmailInput = styled.input`
   width: 100%;
   padding: 20px 10px;
   border-color: transparent;
+  color: #fff;
+  font-size: 17px;
 `;
 
 export const PinkText = styled.span`
   color: #e4229b;
+`;
+
+export const TermContainer = styled.div`
+  max-width: 300px;
+  margin: 0 auto;
+  line-height: 24px;
 `;

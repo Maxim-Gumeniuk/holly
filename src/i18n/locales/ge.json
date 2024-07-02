@@ -1,0 +1,67 @@
+{
+  "language": {
+    "title": "Was ist Ihre bevorzugte Sprache?",
+    "subtitle": "Wählen Sie eine Sprache aus",
+    "variants": [
+      { "language": "Englisch", "value": "en" },
+      { "language": "Französisch", "value": "fr" },
+      { "language": "Deutsch", "value": "ge" },
+      { "language": "Spanisch", "value": "sp" }
+    ]
+  },
+  "gender": {
+    "title": "Mit welchem Geschlecht identifizieren Sie sich?",
+    "subtitle": "Bitte teilen Sie mit, wie Sie sich identifizieren",
+    "variants": ["Weiblich", "Männlich", "Andere"]
+  },
+  "age": {
+    "title": "Wie alt sind Sie?",
+    "variants": ["18-29 Jahre", "30-39 Jahre", "40-49 Jahre", "50+"]
+  },
+  "books": {
+    "title": "Was stört Sie am meisten an einem Buch?",
+    "variants": [
+      "Mangelnde Logik",
+      "Langsames Tempo",
+      "Mangelnder Humor",
+      "Zu generisches Ende"
+    ]
+  },
+  "topics": {
+    "title": "Was sind Ihre Lieblings-Themen?",
+    "subtitle": "Wählen Sie bis zu 3 Themen aus, die Sie mögen",
+    "variants": [
+      "Werwolf",
+      "Romantik",
+      "Action",
+      "Junge Erwachsene",
+      "Königliche Obsession",
+      "Bad Boy",
+      "Milliardär"
+    ]
+  },
+  "progress": {
+    "title": "Suche nach Sammlungen für Sie..."
+  },
+  "email": {
+    "title": "E-Mail",
+    "subtitle": "Geben Sie Ihre E-Mail-Adresse ein, um vollen Zugang zu erhalten",
+    "placeholder": "Ihre E-Mail-Adresse",
+    "terms": "Durch die Fortsetzung stimme ich der Datenschutzrichtlinie und den Nutzungsbedingungen zu."
+  },
+  "quize-succes": {
+    "title": "Vielen Dank",
+    "subtitle": "für Ihre Unterstützung und das Bestehen des Quiz",
+    "download": "Meine Antworten herunterladen",
+    "button": "Quiz erneut machen"
+  },
+  "button": {
+    "next": "Weiter"
+  },
+  "download-answers": {
+    "title": "Meine Antworten herunterladen"
+  },
+  "errors": {
+    "email": "erneut emaile"
+  }
+}

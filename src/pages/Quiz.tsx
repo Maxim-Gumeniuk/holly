@@ -3,7 +3,7 @@ import { QuizWrapper } from '@/components/quiz-wrapper';
 
 export const Quiz = () => {
   return (
-    <CenteredContainer>
+    <CenteredContainer flexDirection="row">
       <QuizWrapper />
     </CenteredContainer>
   );

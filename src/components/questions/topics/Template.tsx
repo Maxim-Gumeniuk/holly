@@ -13,14 +13,15 @@ type Props = {
 export const OptionTemplate: FC<Props> = ({ start, finish, topicSvgs }) => {
   const { t } = useTranslation();
 
-  const { dispatch } = useQuizContext();
+  const { dispatch, state } = useQuizContext();
 
   return (
-    <OptionTopicContainer style={{ color: 'white' }}>
+    <OptionTopicContainer>
       {(t('topics.variants', { returnObjects: true }) as Array<string>)
         .slice(start, finish && finish)
         .map((topic, index) => (
           <OptionTopic
+            checked={!!state.favoriteTopics.includes(topic)}
             key={topic}
             onClick={() => {
               dispatch({ type: 'SET_FAVORITE_TOPICS', payload: topic });

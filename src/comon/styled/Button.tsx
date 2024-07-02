@@ -11,7 +11,6 @@ export const Button = styled.div<Button>`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   padding: 20px 0;
   font-size: 17px;
   border-radius: 40px;

@@ -1,7 +1,7 @@
-import { Fragment } from 'react';
+import { Fragment, ReactNode } from 'react';
 import { PinkText } from '@/components/email/styles';
 
-export const highlight = (text: string, terms: string[]): React.ReactNode => {
+export const highlight = (text: string, terms: string[]): ReactNode => {
   const regex = new RegExp(`(${terms.join('|')})`, 'gi');
   const parts = text.split(regex);
 

@@ -29,7 +29,6 @@ export const topicSvgs = {
     '0': <BillionareSvg />,
   },
 };
-export const maxSteps = 5;
 
 export const quizTitles = {
   '1': { title: 'language.title', subtitle: 'language.subtitle' },
@@ -37,13 +36,6 @@ export const quizTitles = {
   '3': { title: 'age.title', subtitle: null },
   '4': { title: 'books.title', subtitle: null },
   '5': { title: 'topics.title', subtitle: 'topics.subtitle' },
-};
-
-export const languagesAtr = {
-  English: 'en',
-  French: 'fr',
-  German: 'ge',
-  Spanish: 'sp',
 };
 
 export const quizComponents = {

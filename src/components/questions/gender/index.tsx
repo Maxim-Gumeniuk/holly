@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { useQuizContext } from '@/main-context/Quiz';
-import { FlexContainer } from '@/comon/styled/Flex';
+
 import { Quizoption } from '@/comon/styled/QiuzOption';
 import FemalePicture from '@/assets/female.png';
 import MalePicture from '@/assets/male.png';
 import OtherPicture from '@/assets/other.png';
+import { FlexBox } from '@/comon/styled/FlexBox';
 
 export const ChooseGender = () => {
   const { dispatch, sequenceNum, setSequenceNum } = useQuizContext();
@@ -29,7 +30,7 @@ export const ChooseGender = () => {
   }, []);
 
   return (
-    <FlexContainer gap="10px">
+    <FlexBox gap="10px">
       {(t('gender.variants', { returnObjects: true }) as Array<string>).map(
         (variant, index) => (
           <Quizoption
@@ -39,13 +40,13 @@ export const ChooseGender = () => {
               handleChooseOption(variant);
             }}
           >
-            <FlexContainer flexDirection="column">
+            <FlexBox flexDirection="column" gap="10px" alignItem="center">
               <img src={genderImages[index as keyof typeof genderImages]} />
               {variant}
-            </FlexContainer>
+            </FlexBox>
           </Quizoption>
         )
       )}
-    </FlexContainer>
+    </FlexBox>
   );
 };

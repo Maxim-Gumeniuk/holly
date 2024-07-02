@@ -8,14 +8,16 @@ import { MainTitle } from '@/comon/styled/MainTitle';
 import { Subtitle } from '@/comon/styled/Subtitle';
 import { Button } from '@/comon/styled/Button';
 import { ProgressBarLinear } from '@/comon/components/progress-linear';
-import { maxSteps, quizComponents, quizTitles } from '@/constants/quiz';
+import { quizComponents, quizTitles } from '@/constants/quiz';
 import { BackSvg } from '@/assets/svg/back';
 import { PinkText } from '../email/styles';
 import { ExtendedFlexBox, FlexBox } from '@/comon/styled/FlexBox';
-import { highlight } from '@/comon/components/highlitText';
+import { highlight } from '@/comon/components/highlightText';
 
 export const QuizWrapper = () => {
   const { quizId } = useParams();
+
+  console.log(quizId, 'quizId');
 
   const navigate = useNavigate();
 
@@ -30,10 +32,12 @@ export const QuizWrapper = () => {
       setSequenceNum(1);
       navigate('1');
     }
+
+    localStorage.setItem('quizId', String(quizId));
   }, [quizId]);
 
   const nextQuiz = () => {
-    if (sequenceNum === maxSteps) {
+    if (sequenceNum === keysOfQuizComponents.length) {
       navigate(`/${ROUTES.EMAIL}`);
 
       return;
@@ -69,12 +73,16 @@ export const QuizWrapper = () => {
           <div>{keysOfQuizComponents.length}</div>
         </FlexBox>
       </FlexBox>
-      <FlexBox gap="50px" flexDirection="column">
+      <FlexBox gap="50px" flexDirection="column" height="100%">
         <ProgressBarLinear
           step={sequenceNum}
           totalSteps={keysOfQuizComponents.length + 1}
         />
-        <ExtendedFlexBox flexDirection="column" gap="20px">
+        <ExtendedFlexBox
+          flexDirection="column"
+          gap="20px"
+          justifyContent="flex-start"
+        >
           <FlexBox gap="20px" flexDirection="column">
             <FlexBox gap="25px" flexDirection="column">
               <MainTitle>
@@ -105,7 +113,7 @@ export const QuizWrapper = () => {
         <Button
           disabled={
             !(sequenceNum === 4
-              ? state.hateInBooks.length
+              ? state.hateInBooks.length >= 2
               : state.favoriteTopics.length === 3)
           }
           onClick={() => {

@@ -8,7 +8,6 @@ import {
   SetStateAction,
   useMemo,
 } from 'react';
-import { useParams } from 'react-router-dom';
 
 interface QuizState {
   language: string;
@@ -84,7 +83,7 @@ const quizReducer = (state: QuizState, action: QuizAction): QuizState => {
           favoriteTopics: state.favoriteTopics.includes(action.payload)
             ? state.favoriteTopics.filter((el) => el !== action.payload)
             : state.favoriteTopics.length === 3
-              ? [...state.favoriteTopics.slice(0, 2), action.payload]
+              ? [...state.favoriteTopics.slice(1, 3), action.payload]
               : [...state.favoriteTopics, action.payload],
         };
       default:
@@ -110,12 +109,13 @@ interface QuizProviderProps {
 }
 
 export const QuizProvider = ({ children }: QuizProviderProps) => {
-  const { quizId } = useParams<{ quizId: string }>();
-
-  const [sequenceNum, setSequenceNum] = useState(quizId ? +quizId : 1);
   const [state, dispatch] = useReducer(
     quizReducer,
     loadStateFromLocalStorage()
+  );
+
+  const [sequenceNum, setSequenceNum] = useState(
+    localStorage.getItem('quizId') ? +localStorage.getItem('quizId')! : 1
   );
 
   const value = useMemo(

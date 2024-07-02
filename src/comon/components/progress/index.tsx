@@ -14,6 +14,7 @@ export const ProgressCircle: FC<Props> = ({ progress, setProgress }) => {
           clearInterval(interval);
           return 100;
         }
+
         return prevProgress + 2;
       });
     }, 100);
@@ -40,8 +41,8 @@ export const ProgressCircle: FC<Props> = ({ progress, setProgress }) => {
           cx="150"
           cy="150"
           r={radius}
-          stroke="#6D4376"
-          strokeWidth="10" /* Adjust strokeWidth as needed */
+          stroke="#E4229B"
+          strokeWidth="10"
           fill="none"
           strokeDasharray={circumference}
           strokeDashoffset={strokeDashoffset}

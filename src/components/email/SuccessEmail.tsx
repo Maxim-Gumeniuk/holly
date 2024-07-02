@@ -1,8 +1,11 @@
-import { SuccesSvg } from '@/assets/svg/succes';
-import { useQuizContext } from '@/main-context/Quiz';
-import { downloadCSV } from '@/utils/csv';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { DownLoadSvg } from '@/assets/svg/download';
+import { SuccesSvg } from '@/assets/svg/succes';
+import { FlexButton } from '@/comon/styled/FlexBox';
+import { useQuizContext } from '@/main-context/Quiz';
+import { downloadCSV } from '@/utils/csv';
 
 export const SuccesEmail = () => {
   const { state } = useQuizContext();
@@ -50,15 +53,18 @@ export const SuccesEmail = () => {
       <div>
         <SuccesSvg />
       </div>
-      <div
-        style={{ display: 'flex', justifyContent: 'center', gap: '5px' }}
+      <FlexButton
+        justifyContent="center"
+        gap="5px"
+        alignItem="center"
         onClick={() => {
           downloadCSV(userAnswers);
         }}
       >
-        <div>dwwdk</div>
+        <DownLoadSvg />
+
         <div>{t('download-answers.title')}</div>
-      </div>
+      </FlexButton>
     </>
   );
 };

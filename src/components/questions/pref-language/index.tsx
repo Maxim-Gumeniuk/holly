@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { FlexBox } from '@/comon/styled/FlexBox';
 import { Quizoption } from '@/comon/styled/QiuzOption';
-import { languagesAtr } from '@/constants/quiz';
+
 import { useQuizContext } from '@/main-context/Quiz';
 
 export const PrefLanguage = () => {
@@ -13,9 +13,10 @@ export const PrefLanguage = () => {
 
   const { t } = useTranslation();
 
-  const handleChooseOption = (language: string) => {
+  const handleChooseOption = (language: string, value: string) => {
     dispatch({ type: 'SET_LANGUAGE', payload: language });
-    changeLanguage(languagesAtr[language as keyof typeof languagesAtr]);
+
+    changeLanguage(value);
     setSequenceNum((prev) => prev + 1);
 
     navigate(`${sequenceNum + 1}`);
@@ -23,18 +24,21 @@ export const PrefLanguage = () => {
 
   return (
     <FlexBox gap="10px" flexDirection="column">
-      {(t('language.variants', { returnObjects: true }) as Array<string>).map(
-        (language) => (
-          <Quizoption
-            key={language}
-            onClick={() => {
-              handleChooseOption(language);
-            }}
-          >
-            {language}
-          </Quizoption>
-        )
-      )}
+      {(
+        t('language.variants', { returnObjects: true }) as Array<{
+          language: string;
+          value: string;
+        }>
+      ).map(({ language, value }) => (
+        <Quizoption
+          key={value}
+          onClick={() => {
+            handleChooseOption(language, value);
+          }}
+        >
+          {language}
+        </Quizoption>
+      ))}
     </FlexBox>
   );
 };

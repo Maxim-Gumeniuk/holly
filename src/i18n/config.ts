@@ -3,6 +3,8 @@ import { initReactI18next } from 'react-i18next';
 
 import enGB from './locales/en.json';
 import frFR from './locales/fr.json';
+import geGE from './locales/ge.json';
+import spSP from './locales/sp.json';
 
 const defaultLanguage = 'en-GB';
 
@@ -14,6 +16,12 @@ export const resources = {
   },
   fr: {
     [defaultNamespace]: frFR,
+  },
+  ge: {
+    [defaultNamespace]: geGE,
+  },
+  sp: {
+    [defaultNamespace]: spSP,
   },
 };
 

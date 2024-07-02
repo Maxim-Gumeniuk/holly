@@ -2,11 +2,12 @@ import styled from 'styled-components';
 
 interface IQuizoption {
   textAlign?: string;
+  padding?: string;
 }
 
 export const Quizoption = styled.div<IQuizoption>`
   border-radius: 16px;
-  padding: 20px 12px;
+  padding: ${({ padding }) => padding || '20px 12px;'};
   background-color: #36173d;
   width: 100%;
   text-align: ${({ textAlign }) => textAlign || 'left'};

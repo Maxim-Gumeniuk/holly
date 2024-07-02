@@ -1,0 +1,67 @@
+{
+  "language": {
+    "title": "¿Cuál es tu idioma preferido?",
+    "subtitle": "Elige idioma",
+    "variants": [
+      { "language": "Inglés", "value": "en" },
+      { "language": "Francés", "value": "fr" },
+      { "language": "Alemán", "value": "ge" },
+      { "language": "Español", "value": "sp" }
+    ]
+  },
+  "gender": {
+    "title": "¿Con qué género te identificas?",
+    "subtitle": "Por favor comparte cómo te identificas",
+    "variants": ["Femenino", "Masculino", "Otro"]
+  },
+  "age": {
+    "title": "¿Cuál es tu edad?",
+    "variants": ["18-29 años", "30-39 años", "40-49 años", "50+"]
+  },
+  "books": {
+    "title": "¿Qué es lo que más odias de un libro?",
+    "variants": [
+      "Falta de lógica",
+      "Un ritmo lento",
+      "Falta de humor",
+      "Un final demasiado genérico"
+    ]
+  },
+  "topics": {
+    "title": "¿Cuáles son tus temas favoritos?",
+    "subtitle": "Elige hasta 3 temas que te gusten",
+    "variants": [
+      "Hombre lobo",
+      "Romance",
+      "Acción",
+      "Joven adulto",
+      "Obsesión real",
+      "Chico malo",
+      "Multimillonario"
+    ]
+  },
+  "progress": {
+    "title": "Buscando colecciones para ti..."
+  },
+  "email": {
+    "title": "Correo electrónico",
+    "subtitle": "Ingresa tu correo electrónico para obtener acceso completo",
+    "placeholder": "Tu correo electrónico",
+    "terms": "Al continuar, acepto la política de privacidad y los términos de uso."
+  },
+  "quize-succes": {
+    "title": "Gracias",
+    "subtitle": "por apoyarnos y pasar el cuestionario",
+    "download": "Descargar mis respuestas",
+    "button": "Rehacer cuestionario"
+  },
+  "button": {
+    "next": "Siguiente"
+  },
+  "download-answers": {
+    "title": "Descargar mis respuestas"
+  },
+  "errors": {
+    "email": "Descarl Emeole"
+  }
+}

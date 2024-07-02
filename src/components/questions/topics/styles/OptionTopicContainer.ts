@@ -6,4 +6,5 @@ export const OptionTopicContainer = styled.div`
   justify-items: center;
   align-items: center;
   gap: 10px;
+  width: 100%;
 `;
