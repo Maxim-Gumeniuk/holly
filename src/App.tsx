@@ -5,6 +5,7 @@ function App() {
   useEffect(() => {
     changeLanguage(localStorage.getItem('languageKey')!);
   }, []);
+
   return <></>;
 }
 
