@@ -54,14 +54,12 @@ export const SuccesEmail = () => {
       <div>
         <SuccesSvg />
       </div>
+
       <FlexBox
         cursor="pointer"
         justifyContent="center"
         gap="5px"
         alignItem="center"
-        onClick={() => {
-          downloadCSV(userAnswers);
-        }}
       >
         <DownLoadSvg />
 
