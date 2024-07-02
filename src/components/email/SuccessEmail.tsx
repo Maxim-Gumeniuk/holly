@@ -60,6 +60,9 @@ export const SuccesEmail = () => {
         justifyContent="center"
         gap="5px"
         alignItem="center"
+        onClick={() => {
+          downloadCSV(userAnswers);
+        }}
       >
         <DownLoadSvg />
 

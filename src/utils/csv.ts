@@ -9,7 +9,9 @@ const convertToCSV = (data: UserAnswer[]) => {
   const headers = 'order,title,type,answer\n';
   const rows = data
     .map((item) => {
-      const answer = Array.isArray(item.answer) ? item.answer.join(' ') : item.answer;
+      const answer = Array.isArray(item.answer)
+        ? item.answer.join(' ')
+        : item.answer;
       return `${item.order},${item.title},${item.type},"${answer.replace(/"/g, '""')}"`;
     })
     .join('\n');
