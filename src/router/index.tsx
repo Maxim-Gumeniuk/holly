@@ -2,6 +2,7 @@ import { RedirectView } from '@/components/redirect';
 import { ROUTES } from '@/navigation';
 import { EmailPage } from '@/pages/Email';
 import { Quiz } from '@/pages/Quiz';
+import { Succes } from '@/pages/Succes';
 import { createBrowserRouter, Outlet } from 'react-router-dom';
 
 export const router = createBrowserRouter([
@@ -20,4 +21,5 @@ export const router = createBrowserRouter([
     path: `${ROUTES.EMAIL}`,
     element: <EmailPage />,
   },
+  { path: `${ROUTES.SUCCESS}`, element: <Succes /> },
 ]);

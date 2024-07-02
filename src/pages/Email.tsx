@@ -1,10 +1,11 @@
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { CenteredContainer } from '@/comon/styled/CenteredContainer';
-import { WrapperEmail } from '@/components/email/WrapperEmail';
+
 import { ProgressCircle } from '@/comon/components/progress';
 import { useQuizContext } from '@/main-context/Quiz';
 import { FlexBox } from '@/comon/styled/FlexBox';
+import { ResultEmail } from '@/components/email/ResultEmail';
 
 export const EmailPage = () => {
   const [progress, setProgress] = useState(0);
@@ -21,7 +22,7 @@ export const EmailPage = () => {
           </FlexBox>
         </CenteredContainer>
       ) : (
-        <WrapperEmail />
+        <ResultEmail />
       )}
     </CenteredContainer>
   );
