@@ -22,7 +22,7 @@ export const FlexBox = styled.div<FlexContainer>`
   align-items: ${({ alignItem }) => alignItem || 'stretch'};
   height: ${({ height }) => height || 'auto'};
   margin-top: ${({ marginTop }) => (marginTop ? marginTop : '0px')};
-  cursor: ${({ cursor }) => cursor || 'auto'}
+  cursor: ${({ cursor }) => cursor || 'auto'};
 `;
 
 export const ExtendedFlexBox = styled(FlexBox)<FlexContainer>`

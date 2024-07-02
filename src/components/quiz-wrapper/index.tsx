@@ -60,9 +60,9 @@ export const QuizWrapper = () => {
 
   return (
     <FlexBox gap="10px" flexDirection="column">
-      <FlexBox>
+      <FlexBox alignItem="center" style={{ position: 'relative' }}>
         {sequenceNum > 1 && (
-          <div onClick={prevQuiz}>
+          <div onClick={prevQuiz} style={{ position: 'absolute', left: '2px' }}>
             <BackSvg />
           </div>
         )}

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import CheckSvg from '@/public/assets/check.png'
+import CheckSvg from '@/public/assets/check.png';
 
 interface ICheckBox {
   checked?: boolean;

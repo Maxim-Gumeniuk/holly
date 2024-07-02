@@ -16,5 +16,6 @@ export const Quizoption = styled.div<IQuizoption>`
   font-weight: 600;
   line-height: 24px;
   cursor: pointer;
-  border: ${({ checked, theme }) => checked && `1px solid ${theme.colors.selectedbg}`}
+  border: ${({ checked, theme }) =>
+    checked && `1px solid ${theme.colors.selectedbg}`};
 `;
