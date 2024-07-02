@@ -14,7 +14,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
 export const Succes = () => {
-  const { state, setSequenceNum, dispatch } = useQuizContext();
+  const { state, dispatch } = useQuizContext();
 
   const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ export const Succes = () => {
 
     dispatch({ type: Actions.CLEAR_ALL, payload: null });
 
-    setSequenceNum(1);
+    dispatch({ type: Actions.SET_SEQUENCE, payload: 1 });
 
     navigate(`/${ROUTES.QUIZ}/1`);
   };

@@ -5,6 +5,7 @@ export interface QuizState {
   hateInBooks: Array<string>;
   favoriteTopics: Array<string>;
   email: string;
+  sequenceNum: number;
 }
 
 export enum Actions {
@@ -15,4 +16,5 @@ export enum Actions {
   SET_FAVORITE_TOPICS = 'SET_FAVORITE_TOPICS',
   SET_EMAIL = 'SET_EMAIL',
   CLEAR_ALL = 'CLEAR_ALL',
+  SET_SEQUENCE = 'SET_SEQUENCE',
 }

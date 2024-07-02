@@ -4,8 +4,6 @@ import {
   useContext,
   ReactNode,
   Dispatch,
-  useState,
-  SetStateAction,
   useMemo,
 } from 'react';
 import { Actions, QuizState } from './types';
@@ -17,6 +15,7 @@ export const initialState: QuizState = {
   hateInBooks: [],
   favoriteTopics: [],
   email: '',
+  sequenceNum: 1,
 };
 
 type QuizAction =
@@ -26,6 +25,7 @@ type QuizAction =
   | { type: Actions.SET_HATE_IN_BOOKS; payload: string }
   | { type: Actions.SET_FAVORITE_TOPICS; payload: string }
   | { type: Actions.SET_EMAIL; payload: string }
+  | { type: Actions.SET_SEQUENCE; payload: number }
   | { type: Actions.CLEAR_ALL; payload: null };
 
 const saveStateToLocalStorage = (state: QuizState) => {
@@ -70,6 +70,8 @@ const quizReducer = (state: QuizState, action: QuizAction): QuizState => {
         };
       case Actions.SET_EMAIL:
         return { ...state, email: action.payload };
+      case Actions.SET_SEQUENCE:
+        return { ...state, sequenceNum: action.payload };
       case Actions.SET_FAVORITE_TOPICS:
         return {
           ...state,
@@ -79,6 +81,7 @@ const quizReducer = (state: QuizState, action: QuizAction): QuizState => {
               ? [...state.favoriteTopics.slice(1, 3), action.payload]
               : [...state.favoriteTopics, action.payload],
         };
+
       default:
         return state;
     }
@@ -91,8 +94,6 @@ const quizReducer = (state: QuizState, action: QuizAction): QuizState => {
 interface QuizContextType {
   state: QuizState;
   dispatch: Dispatch<QuizAction>;
-  sequenceNum: number;
-  setSequenceNum: Dispatch<SetStateAction<number>>;
 }
 
 const QuizContext = createContext<QuizContextType | undefined>(undefined);
@@ -107,12 +108,7 @@ export const QuizProvider = ({ children }: QuizProviderProps) => {
     loadStateFromLocalStorage()
   );
 
-  const [sequenceNum, setSequenceNum] = useState(1);
-
-  const value = useMemo(
-    () => ({ state, dispatch, sequenceNum, setSequenceNum }),
-    [state, dispatch, sequenceNum, setSequenceNum]
-  );
+  const value = useMemo(() => ({ state, dispatch }), [state, dispatch]);
 
   return <QuizContext.Provider value={value}>{children}</QuizContext.Provider>;
 };

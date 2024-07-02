@@ -6,9 +6,10 @@ import { FlexBox } from '@/comon/styled/FlexBox';
 import { Quizoption } from '@/comon/styled/QiuzOption';
 
 import { useQuizContext } from '@/main-context/Quiz';
+import { Actions } from '@/main-context/types';
 
 export const PrefLanguage = () => {
-  const { state, sequenceNum, setSequenceNum } = useQuizContext();
+  const { state, dispatch } = useQuizContext();
 
   const navigate = useNavigate();
 
@@ -19,9 +20,9 @@ export const PrefLanguage = () => {
 
     localStorage.setItem('languageKey', value);
 
-    setSequenceNum((prev) => prev + 1);
+    dispatch({ type: Actions.SET_SEQUENCE, payload: state.sequenceNum + 1 });
 
-    navigate(`${sequenceNum + 1}`);
+    navigate(`${state.sequenceNum + 1}`);
   };
 
   return (

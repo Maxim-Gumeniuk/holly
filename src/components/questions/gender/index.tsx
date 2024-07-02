@@ -11,7 +11,7 @@ import { genderImages } from '@/constants/quiz';
 import { Actions } from '@/main-context/types';
 
 export const ChooseGender = () => {
-  const { state, dispatch, sequenceNum, setSequenceNum } = useQuizContext();
+  const { state, dispatch } = useQuizContext();
   const { t } = useTranslation();
   const navigate = useNavigate();
 
@@ -32,8 +32,9 @@ export const ChooseGender = () => {
 
   const handleChooseOption = (gender: string) => {
     dispatch({ type: Actions.SET_GENDER, payload: gender });
-    setSequenceNum((prev) => prev + 1);
-    navigate(`${sequenceNum + 1}`);
+    dispatch({ type: Actions.SET_SEQUENCE, payload: state.sequenceNum + 1 });
+
+    navigate(`${state.sequenceNum + 1}`);
   };
 
   return (

@@ -7,14 +7,15 @@ import { Quizoption } from '@/comon/styled/QiuzOption';
 import { Actions } from '@/main-context/types';
 
 export const ChooseAge = () => {
-  const { state, dispatch, sequenceNum, setSequenceNum } = useQuizContext();
+  const { state, dispatch } = useQuizContext();
   const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleChooseOption = (age: string) => {
     dispatch({ type: Actions.SET_AGE, payload: age });
-    setSequenceNum((prev) => prev + 1);
-    navigate(`${sequenceNum + 1}`);
+    dispatch({ type: Actions.SET_SEQUENCE, payload: state.sequenceNum + 1 });
+
+    navigate(`${state.sequenceNum + 1}`);
   };
 
   return (

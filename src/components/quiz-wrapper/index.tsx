@@ -13,6 +13,7 @@ import { BackSvg } from '@/public/assets/svg/back';
 import { PinkText } from '../email/styles';
 import { ExtendedFlexBox, FlexBox } from '@/comon/styled/FlexBox';
 import { highlight } from '@/comon/components/highlightText';
+import { Actions } from '@/main-context/types';
 
 export const QuizWrapper = () => {
   const { quizId } = useParams();
@@ -21,36 +22,36 @@ export const QuizWrapper = () => {
 
   const { t } = useTranslation();
 
-  const { state, sequenceNum, setSequenceNum } = useQuizContext();
+  const { state, dispatch } = useQuizContext();
 
   const keysOfQuizComponents = useMemo(() => Object.keys(quizComponents), []);
 
   useEffect(() => {
     if (!keysOfQuizComponents.includes(quizId!)) {
-      setSequenceNum(1);
+      dispatch({ type: Actions.SET_SEQUENCE, payload: 1 });
       navigate('1');
     }
 
-    setSequenceNum(+quizId!);
+    dispatch({ type: Actions.SET_SEQUENCE, payload: +quizId! });
   }, [quizId]);
 
   const nextQuiz = () => {
-    if (sequenceNum === keysOfQuizComponents.length) {
+    if (state.sequenceNum === keysOfQuizComponents.length) {
       navigate(`/${ROUTES.EMAIL}`);
 
       return;
     }
 
-    setSequenceNum((prev) => ++prev);
+    dispatch({ type: Actions.SET_SEQUENCE, payload: state.sequenceNum + 1 });
 
-    navigate(`${sequenceNum + 1}`);
+    navigate(`${state.sequenceNum + 1}`);
   };
 
   const prevQuiz = () => {
-    if (sequenceNum > 1) {
-      setSequenceNum((prev) => --prev);
+    if (state.sequenceNum > 1) {
+      dispatch({ type: Actions.SET_SEQUENCE, payload: state.sequenceNum - 1 });
 
-      navigate(`${sequenceNum - 1}`);
+      navigate(`${state.sequenceNum - 1}`);
 
       return;
     }
@@ -61,19 +62,19 @@ export const QuizWrapper = () => {
   return (
     <FlexBox gap="10px" flexDirection="column">
       <FlexBox alignItem="center" style={{ position: 'relative' }}>
-        {sequenceNum > 1 && (
+        {state.sequenceNum > 1 && (
           <div onClick={prevQuiz} style={{ position: 'absolute', left: '2px' }}>
             <BackSvg />
           </div>
         )}
         <FlexBox gap="2px">
-          <PinkText>{sequenceNum}</PinkText>/
+          <PinkText>{state.sequenceNum}</PinkText>/
           <div>{keysOfQuizComponents.length}</div>
         </FlexBox>
       </FlexBox>
       <FlexBox gap="50px" flexDirection="column" height="100%">
         <ProgressBarLinear
-          step={sequenceNum}
+          step={state.sequenceNum}
           totalSteps={keysOfQuizComponents.length + 1}
         />
         <ExtendedFlexBox
@@ -86,31 +87,37 @@ export const QuizWrapper = () => {
               <MainTitle>
                 {highlight(
                   t(
-                    quizTitles[String(sequenceNum) as keyof typeof quizTitles]
-                      .title
+                    quizTitles[
+                      String(state.sequenceNum) as keyof typeof quizTitles
+                    ].title
                   ),
                   t('color-text.red', { returnObjects: true })
                 )}
               </MainTitle>
-              {quizTitles[String(sequenceNum) as keyof typeof quizTitles]
+              {quizTitles[String(state.sequenceNum) as keyof typeof quizTitles]
                 .subtitle && (
                 <Subtitle>
                   {t(
-                    quizTitles[String(sequenceNum) as keyof typeof quizTitles]
-                      .subtitle!
+                    quizTitles[
+                      String(state.sequenceNum) as keyof typeof quizTitles
+                    ].subtitle!
                   )}
                 </Subtitle>
               )}
             </FlexBox>
 
-            {quizComponents[String(sequenceNum) as keyof typeof quizComponents]}
+            {
+              quizComponents[
+                String(state.sequenceNum) as keyof typeof quizComponents
+              ]
+            }
           </FlexBox>
         </ExtendedFlexBox>
       </FlexBox>
-      {sequenceNum > 3 && (
+      {state.sequenceNum > 3 && (
         <Button
           disabled={
-            !(sequenceNum === 4
+            !(state.sequenceNum === 4
               ? state.hateInBooks.length >= 2
               : state.favoriteTopics.length === 3)
           }
