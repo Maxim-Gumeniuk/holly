@@ -4884,11 +4884,6 @@ vite-babel-plugin@^0.0.2:
     "@rollup/plugin-babel" "^5.2.2"
     vite "^1.0.0-rc.9"
 
-vite-plugin-babel@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/vite-plugin-babel/-/vite-plugin-babel-1.2.0.tgz#0d803d489c2a7e63ceb93e37533de298e1537c71"
-  integrity sha512-ltAnq535Ubf9sDbVCkztAdkwx5aQbNrwPFs+iZTJ5FaAhTdxjqmLGpxsAaRfJWEKBJ/kFf9KwMoTdArm0IRUUw==
-
 vite@^1.0.0-rc.9:
   version "1.0.0-rc.13"
   resolved "https://registry.yarnpkg.com/vite/-/vite-1.0.0-rc.13.tgz#0e0b3b6138998a1d0c02459908a6c4fb2f294727"
