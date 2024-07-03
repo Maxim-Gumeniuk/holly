@@ -9,7 +9,7 @@ import { Subtitle } from '@/comon/styled/Subtitle';
 import { Button } from '@/comon/styled/Button';
 import { ProgressBarLinear } from '@/comon/components/progress-linear';
 import { quizComponents, quizTitles } from '@/constants/quiz';
-import { BackSvg } from '@/public/assets/svg/back';
+import { BackSvg } from '@/assets/svg/back';
 import { PinkText } from '../email/styles';
 import { ExtendedFlexBox, FlexBox } from '@/comon/styled/FlexBox';
 import { highlight } from '@/comon/components/highlightText';
